@@ -13,3 +13,8 @@ def show(db) -> Show:
 def shows(db) -> list[Show]:
     """creates 5 shows for testing"""
     return ShowFactory.create_batch(5)
+
+@pytest.fixture
+def show_with_picture(db, picture) -> Show:
+    """Creates a show with a picture"""
+    return ShowFactory(pictures=[picture])

@@ -31,3 +31,16 @@ class TestShowsAPI:
         """
         response = unauthenticated_client.put(show.get_absolute_url())
         assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
+
+    @pytest.mark.django_db
+    def test_shows_return_pictures(self, unauthenticated_client, show_with_picture):
+        """
+        Shows should return any pictures that they have
+        """
+        response = unauthenticated_client.get(show_with_picture.get_absolute_url())
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+
+        expected_picture_description = show_with_picture.pictures.first().description
+        actual_picture_description = data.get("pictures")[0]["description"]
+        assert actual_picture_description == expected_picture_description

@@ -87,6 +87,8 @@ LOCAL_APPS = [
     "atomic_aurora_backend.users",
     # Your stuff: custom apps go here
     "atomic_aurora_backend.shows",
+    "atomic_aurora_backend.pictures",
+    "atomic_aurora_backend.products",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
