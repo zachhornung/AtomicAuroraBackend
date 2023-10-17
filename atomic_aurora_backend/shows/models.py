@@ -8,7 +8,7 @@ class Show(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
     show_date = models.DateTimeField()
-    pictures = models.ManyToManyField(Picture)
+    pictures = models.ManyToManyField(Picture, blank=True)
 
     def __str__(self) -> str:
         return f"{self.name} {self.show_date}"

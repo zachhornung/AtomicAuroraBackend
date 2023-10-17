@@ -1,5 +1,5 @@
 """
-Base settings to build other settings files upon.
+showsBase settings to build other settings files upon.
 """
 from pathlib import Path
 
