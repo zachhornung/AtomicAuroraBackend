@@ -21,34 +21,40 @@ repos:
     rev: '1.14.1'
     hooks:
       - id: django-upgrade
+        exclude: .devcontainer
         args: ['--target-version', '4.2']
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.12.0
     hooks:
       - id: pyupgrade
+        exclude: .devcontainer
         args: [--py311-plus]
 
   - repo: https://github.com/psf/black
     rev: 23.9.1
     hooks:
       - id: black
+        exclude: .devcontainer
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
     hooks:
       - id: isort
+        exclude: .devcontainer
 
   - repo: https://github.com/PyCQA/flake8
     rev: 6.1.0
     hooks:
       - id: flake8
+        exclude: .devcontainer
 
   - repo: https://github.com/Riverside-Healthcare/djLint
     rev: v1.34.0
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
+        exclude: .devcontainer
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:

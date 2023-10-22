@@ -30,4 +30,5 @@ module "cloud-run" {
 module "cloud-storage" {
   source = "./cloud-storage"
   project_id = var.project_id
+  backend_gcs_bucket_name = var.backend_gcs_bucket_name
 }

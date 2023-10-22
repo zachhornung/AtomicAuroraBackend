@@ -16,7 +16,7 @@ resource "google_secret_manager_secret" "django_backend_secrets" {
 }
 
 resource "google_cloud_run_v2_service" "atomic_aurora_backend_server" {
-  name = "atomic_aorora_backend_server"
+  name = "atomic-aurora-backend-server"
   location = "us-west1"
   project = var.project_id
   template {

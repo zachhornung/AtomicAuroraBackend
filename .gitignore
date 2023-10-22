@@ -279,3 +279,9 @@ atomic_aurora_backend/media/
 .env
 .envs/*
 !.envs/.local/
+
+# terraform
+terraform/dev/.terraform
+terraform/dev/.terraform.lock.hcl
+terraform/dev/terraform.tfstate
+terraform/dev/terraform.tfstate.backup

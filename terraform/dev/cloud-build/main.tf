@@ -6,7 +6,7 @@ resource "google_cloudbuild_trigger" "backend-deploy-trigger" {
   name = "backend-server-deploy-trigger"
   github {
     owner = "zachhornung"
-    name = "AtomicAuroraBackend"
+    name = "zachhornung-AtomicAuroraBackend"
     push {
       branch = "^development$"
     }
