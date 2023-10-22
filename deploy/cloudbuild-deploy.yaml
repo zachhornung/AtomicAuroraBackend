@@ -8,7 +8,7 @@ steps:
         "-t",
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:$COMMIT_SHA",
         "--file",
-        "deploy.Dockerfile",
+        "./compose/production/django/Dockerfile",
         ".",
       ]
     timeout: 600s
