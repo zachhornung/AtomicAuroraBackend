@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework.permissions import AllowAny
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
-# Create your views here.
+from .models import Venue
+from .serializers import VenueSerializer
+
+
+class VenueViewSet(ReadOnlyModelViewSet):
+    queryset = Venue.objects.all()
+    serializer_class = VenueSerializer
+    permission_classes = [AllowAny]

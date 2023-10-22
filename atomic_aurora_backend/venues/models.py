@@ -1,12 +1,15 @@
 from django.db import models
+from django.db.models.functions import Lower
 from rest_framework.reverse import reverse
 
 # Create your models here.
+
 
 class Venue(models.Model):
     """
     models a venue in the database
     """
+
     name = models.CharField(max_length=256)
     description = models.TextField(blank=True)
     website = models.URLField(blank=True)
@@ -20,7 +23,7 @@ class Venue(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                models.Lower("name"),
+                Lower("name"),
                 name="unique_name_per_venue",
             )
         ]

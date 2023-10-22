@@ -89,6 +89,9 @@ LOCAL_APPS = [
     "atomic_aurora_backend.shows",
     "atomic_aurora_backend.pictures",
     "atomic_aurora_backend.products",
+    "atomic_aurora_backend.orders",
+    "atomic_aurora_backend.shipments",
+    "atomic_aurora_backend.venues",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
