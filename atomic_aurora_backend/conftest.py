@@ -14,7 +14,7 @@ def media_storage(settings, tmpdir):
 def user(db) -> User:
     return UserFactory()
 
+
 @pytest.fixture
 def unauthenticated_client():
     return APIClient()
-

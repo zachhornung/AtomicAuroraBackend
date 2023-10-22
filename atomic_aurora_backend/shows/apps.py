@@ -7,6 +7,6 @@ class ShowsConfig(AppConfig):
 
     def ready(self):
         try:
-            import atomic_aurora_backend.shows.signals #noqa: F401
+            import atomic_aurora_backend.shows.signals  # noqa: F401
         except ImportError:
             pass

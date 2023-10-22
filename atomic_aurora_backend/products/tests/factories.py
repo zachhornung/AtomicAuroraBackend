@@ -1,12 +1,11 @@
-from factory import Faker, post_generation, SubFactory
-from factory.fuzzy import FuzzyFloat
+from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
+from factory.fuzzy import FuzzyFloat
 
 from atomic_aurora_backend.products.models import Product, ProductColor, ProductType
 
 
 class ProductColorFactory(DjangoModelFactory):
-
     color = Faker("color")
 
     class Meta:
@@ -14,7 +13,6 @@ class ProductColorFactory(DjangoModelFactory):
 
 
 class ProductTypeFactory(DjangoModelFactory):
-
     name = Faker("sentence")
 
     class Meta:
@@ -22,7 +20,6 @@ class ProductTypeFactory(DjangoModelFactory):
 
 
 class ProductFactory(DjangoModelFactory):
-
     type = SubFactory(ProductTypeFactory)
     name = Faker("sentence")
     description = Faker("sentence")
@@ -31,4 +28,3 @@ class ProductFactory(DjangoModelFactory):
 
     class Meta:
         model = Product
-

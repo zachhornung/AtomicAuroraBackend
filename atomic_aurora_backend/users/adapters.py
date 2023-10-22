@@ -9,6 +9,7 @@ from django.http import HttpRequest
 
 if typing.TYPE_CHECKING:
     from allauth.socialaccount.models import SocialLogin
+
     from atomic_aurora_backend.users.models import User
 
 

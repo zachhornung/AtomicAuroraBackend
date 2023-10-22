@@ -62,4 +62,3 @@ resource "google_secret_manager_secret" "atomic_aurora_service_secrets" {
     }
   }
 }
-

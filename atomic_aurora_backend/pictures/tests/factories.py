@@ -5,7 +5,6 @@ from atomic_aurora_backend.pictures.models import Picture
 
 
 class PictureFactory(DjangoModelFactory):
-
     description = Faker("sentences")
     picture = ImageField(filename="sample_image.jpg")
 

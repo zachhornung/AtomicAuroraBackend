@@ -9,10 +9,12 @@ def show(db) -> Show:
     """Creates a show fixture for testing"""
     return ShowFactory()
 
+
 @pytest.fixture
 def shows(db) -> list[Show]:
     """creates 5 shows for testing"""
     return ShowFactory.create_batch(5)
+
 
 @pytest.fixture
 def show_with_picture(db, picture) -> Show:

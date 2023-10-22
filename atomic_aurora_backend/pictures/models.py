@@ -3,12 +3,14 @@ from rest_framework.reverse import reverse
 
 # Create your models here.
 
+
 class Picture(models.Model):
     """
     Stores pictures in the database.
     Pictures can be for any other model,
     such as show pictures, merch pictures, etc.
     """
+
     description = models.TextField(blank=True, null=True)
     picture = models.ImageField()
 

@@ -12,11 +12,7 @@ from django.utils.translation import gettext_lazy as _
 from atomic_aurora_backend.users.forms import UserAdminChangeForm
 from atomic_aurora_backend.users.models import User
 from atomic_aurora_backend.users.tests.factories import UserFactory
-from atomic_aurora_backend.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from atomic_aurora_backend.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 

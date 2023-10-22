@@ -1,10 +1,9 @@
 import pytest
-
-from rest_framework.reverse import reverse
 from rest_framework import status
+from rest_framework.reverse import reverse
+
 
 class TestShowsAPI:
-
     shows_list_url = reverse("api:show-list")
 
     def test_can_get_list_of_shows(self, shows, unauthenticated_client):

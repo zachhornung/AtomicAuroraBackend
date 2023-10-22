@@ -7,6 +7,6 @@ class VenuesConfig(AppConfig):
 
     def ready(self):
         try:
-            import atomic_aurora_backend.venues.signals #noqa: F401
+            import atomic_aurora_backend.venues.signals  # noqa: F401
         except ImportError:
             pass
