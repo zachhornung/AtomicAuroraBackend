@@ -1,0 +1,39 @@
+timeout: 900s
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    id: django-container-build
+    args:
+      [
+        "build",
+        "-t",
+        "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:$COMMIT_SHA",
+        "--file",
+        "deploy.Dockerfile",
+        ".",
+      ]
+    timeout: 600s
+
+  - name: "grc.io/cloud-builders/docker"
+    args: ["push", "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:$COMMIT_SHA"]
+    id: django-container-push
+
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    wait_for: ["django-container-push"]
+    args: [
+      "run",
+      "deploy",
+      "${_SERVER}",
+      "--image",
+      "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:$COMMIT_SHA",
+      "--region",
+      "${_REGION}",
+      "--platform",
+      "managed",
+      "--allow-unauthenticated",
+      "--project",
+      "$PROJECT_ID",
+    ]
+
+images:
+- "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}"
