@@ -93,4 +93,8 @@ RUN DATABASE_URL="" \
   DJANGO_SETTINGS_MODULE="config.settings.test" \
   python manage.py compilemessages
 
+RUN echo ${GCP_KEYFILE} >> key.json
+RUN GOOGLE_APPLICATION_CREDENTIALS="key.json"
+RUN echo "keyfile: ${GCP_KEYFILE}"
+
 ENTRYPOINT ["/entrypoint"]
