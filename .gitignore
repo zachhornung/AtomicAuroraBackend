@@ -278,7 +278,7 @@ atomic_aurora_backend/media/
 .ipython/
 .env
 .envs/*
-!.envs/.local/
+.envs/.local/
 
 # terraform
 terraform/dev/.terraform
