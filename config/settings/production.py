@@ -188,3 +188,7 @@ SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa: F405
 gcp_creds = json.loads(env("GOOGLE_CREDENTIALS"))
 with open("google-credentials.json", "w") as f:
     json.dump(gcp_creds, f)
+
+# CORS for frontend
+CORS_ALLOWED_ORIGINS = ["https://atomic-aurora-frontend-dln16a4sr-zachhornung.vercel.app"]
+CORS_ALLOW_CREDENTIALS = True
