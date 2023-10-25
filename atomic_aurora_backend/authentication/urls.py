@@ -11,9 +11,11 @@ from django.urls import include, path
 
 from .adapters import GoogleLogin
 
+app_name = "authentication"
+
 urlpatterns = [
-    path("registration", include("dj_rest_auth.registration.urls")),
-    path("google", GoogleLogin.as_view(), name="google_login"),
+    path("google/", GoogleLogin.as_view(), name="google_login"),
+    path("registration/", include("dj_rest_auth.registration.urls")),
     # URLs that do not require a session or valid token
     path("password/reset/", PasswordResetView.as_view(), name="rest_password_reset"),
     path("password/reset/confirm/", PasswordResetConfirmView.as_view(), name="rest_password_reset_confirm"),

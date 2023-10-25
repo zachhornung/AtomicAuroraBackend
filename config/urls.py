@@ -17,6 +17,7 @@ urlpatterns = [
     path("users/", include("atomic_aurora_backend.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("api/authentication/", include("atomic_aurora_backend.authentication.urls", namespace=None)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
