@@ -17,6 +17,7 @@ services:
       - mailpit
     volumes:
       - .:/app:z
+      - ./google-login-credentials.json:/app/google-login-credentials.json
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres

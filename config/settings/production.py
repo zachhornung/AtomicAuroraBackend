@@ -189,6 +189,10 @@ gcp_creds = json.loads(env("GOOGLE_CREDENTIALS"))
 with open("google-credentials.json", "w") as f:
     json.dump(gcp_creds, f)
 
+google_login_creds = json.loads(env("GOOGLE_LOGIN_CREDS"))
+with open("google-login-credentials.json", "") as f:
+    json.dump(google_login_creds, f)
+
 # CORS for frontend
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS")
 CORS_ALLOW_CREDENTIALS = True

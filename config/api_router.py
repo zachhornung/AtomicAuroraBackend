@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.urls import include, path
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
 from atomic_aurora_backend.orders.views import OrderViewSet
@@ -24,6 +25,7 @@ router.register("orders", OrderViewSet)
 router.register("shipments", ShipmentViewSet)
 router.register("venues", VenueViewSet)
 
+AUTH_ROUTES = [path("authentication", include("atomic_aurora_backend.authentication.urls"))]
 
 app_name = "api"
-urlpatterns = router.urls
+urlpatterns = router.urls + AUTH_ROUTES

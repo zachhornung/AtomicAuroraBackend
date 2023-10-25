@@ -285,3 +285,9 @@ terraform/dev/.terraform
 terraform/dev/.terraform.lock.hcl
 terraform/dev/terraform.tfstate
 terraform/dev/terraform.tfstate.backup
+
+google-login-credentials.json
+secrets
+secrets/
+secrets/*
+secrets/google-login-credentials.json
