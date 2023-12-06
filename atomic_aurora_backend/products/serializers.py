@@ -18,6 +18,8 @@ class ProductKindSerializer(serializers.ModelSerializer[ProductKind]):
 
 class ProductSerializer(serializers.ModelSerializer[Product]):
     pictures = PictureSerializer(many=True)
+    kind = serializers.CharField(source="kind.name")
+    color = serializers.CharField(required=False, source="color.color")
 
     class Meta:
         model = Product

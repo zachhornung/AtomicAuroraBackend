@@ -1,3 +1,5 @@
+from random import choice
+
 from factory import Faker, SubFactory, post_generation
 from factory.django import DjangoModelFactory
 from factory.fuzzy import FuzzyFloat
@@ -23,7 +25,8 @@ class ProductFactory(DjangoModelFactory):
     kind = SubFactory(ProductKindFactory)
     name = Faker("sentence")
     description = Faker("sentence")
-    color = SubFactory(ProductColorFactory)
+    if choice([True, False]):
+        color = SubFactory(ProductColorFactory)
     price = FuzzyFloat(0.99, 99.99)
 
     class Meta:

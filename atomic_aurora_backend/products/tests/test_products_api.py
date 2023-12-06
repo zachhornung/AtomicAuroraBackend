@@ -49,3 +49,19 @@ class TestProductsAPI:
         data = response.json()
 
         assert data[0]["description"]
+
+    def test_products_have_kind(self, products, unauthenticated_client):
+        """products returned in a get request should have a price"""
+        response = unauthenticated_client.get(self.products_url)
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+
+        assert data[0]["kind"]
+
+    def test_products_have_color(self, product_with_color, unauthenticated_client):
+        """products returned in a get request should have a price"""
+        response = unauthenticated_client.get(self.products_url)
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+
+        assert data[0]["color"]

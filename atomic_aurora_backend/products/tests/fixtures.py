@@ -1,12 +1,18 @@
 import pytest
 
-from atomic_aurora_backend.products.tests.factories import ProductFactory, ProductKindFactory
+from atomic_aurora_backend.products.tests.factories import ProductColorFactory, ProductFactory, ProductKindFactory
 
 
 @pytest.fixture
 def product(db):
     """Create a product fixture."""
     return ProductFactory()
+
+
+@pytest.fixture
+def product_with_color(db):
+    """Create a product with a color."""
+    return ProductFactory(color=ProductColorFactory())
 
 
 @pytest.fixture
