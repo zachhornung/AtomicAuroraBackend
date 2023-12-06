@@ -97,6 +97,7 @@ LOCAL_APPS = [
     "atomic_aurora_backend.orders",
     "atomic_aurora_backend.shipments",
     "atomic_aurora_backend.venues",
+    "atomic_aurora_backend.music",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -331,11 +332,7 @@ SOCIALACCOUNT_FORMS = {"signup": "atomic_aurora_backend.users.forms.UserSocialSi
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        # "rest_framework.authentication.SessionAuthentication",
-        # "rest_framework.authentication.TokenAuthentication",
-        "dj_rest_auth.jwt_auth.JWTCookieAuthentication",
-    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("dj_rest_auth.jwt_auth.JWTCookieAuthentication",),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
@@ -345,6 +342,7 @@ REST_AUTH = {
     "JWT_AUTH_COOKIE": "AA_BACKEND",
     "JWT_AUTH_REFRESH_COOKIE": "AA_BACKEND_REFRESH",
 }
+
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
@@ -368,6 +366,8 @@ SPECTACULAR_SETTINGS = {
 
 # Spotify
 SPOTIFY_ARTIST_ID = env("SPOTIFY_ARTIST_ID")
+SPOTIFY_CLIENT_ID = env("SPOTIPY_CLIENT_ID")
+SPOTIFY_CLIENT_SECRET = env("SPOTIPY_CLIENT_SECRET")
 
 # GCP
 GOOGLE_CALLBACK_URL = env("GOOGLE_CALLBACK_URL")
