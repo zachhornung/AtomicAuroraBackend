@@ -17,9 +17,11 @@ services:
       - mailpit
     volumes:
       - .:/app:z
+      - ./google-login-credentials.json:/app/google-login-credentials.json
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
+      - ./.envs/.local/.secret
     ports:
       - '8000:8000'
     command: /start
@@ -91,3 +93,4 @@ services:
     ports:
       - '5555:5555'
     command: /start-flower
+# redeploy

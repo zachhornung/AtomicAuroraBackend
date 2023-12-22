@@ -1,8 +1,8 @@
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
-from .models import Product, ProductColor, ProductType
-from .serializers import ProductColorSerializer, ProductSerializer, ProductTypeSerializer
+from .models import Product, ProductColor, ProductKind
+from .serializers import ProductColorSerializer, ProductKindSerializer, ProductSerializer
 
 
 class ProductViewSet(ReadOnlyModelViewSet):
@@ -11,9 +11,9 @@ class ProductViewSet(ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
 
 
-class ProductTypeViewSet(ReadOnlyModelViewSet):
-    queryset = ProductType.objects.all()
-    serializer_class = ProductTypeSerializer
+class ProductKindViewSet(ReadOnlyModelViewSet):
+    queryset = ProductKind.objects.all()
+    serializer_class = ProductKindSerializer
     permission_classes = [AllowAny]
 
 

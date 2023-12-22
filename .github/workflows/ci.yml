@@ -40,6 +40,12 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v4
 
+      - name: create secrets file so stack will build
+        run: touch .envs/.local/.secret
+
+      - name: push secrets from github env into secrets file for compose
+        run: echo "SPOTIPY_CLIENT_SECRET=${{ secrets.SPOTIPY_CLIENT_SECRET }}" >> .envs/.local/.secret
+
       - name: Build the Stack
         run: docker compose -f local.yml build
 
