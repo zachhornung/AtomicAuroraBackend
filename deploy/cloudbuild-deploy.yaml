@@ -10,9 +10,15 @@ steps:
       - --file
       - deploy.Dockerfile
       - .
+    secretEnv:
+      - SPOTIPY_CLIENT_SECRET
     timeout: 600s
   - name: gcr.io/cloud-builders/docker
     args:
       - push
       - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_NAME}
     id: django-container-push
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/SPOTIPY_CLIENT_SECRET/versions/latest
+      env: SPOTIPY_CLIENT_SECRET
