@@ -1,0 +1,20 @@
+# General
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+
+# Celery
+# ------------------------------------------------------------------------------
+
+# Flower
+CELERY_FLOWER_USER=debug
+CELERY_FLOWER_PASSWORD=debug
+
+# Other
+SPOTIPY_CLIENT_ID=889bac9dafcd4bfc9f52fa34964c7720
+SPOTIFY_ARTIST_ID=3fBaxyRoLua3UmwZ4yDTHG
+YOUTUBE_CHANNEL_ID=UCyMT2cJkiQe8GfR6Awk_OrA
+GOOGLE_CALLBACK_URL=http://localhost:5173
