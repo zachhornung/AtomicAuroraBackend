@@ -43,6 +43,9 @@ jobs:
       - name: create secrets file so stack will build
         run: touch .envs/.local/.secret
 
+      - name: push secrets from github env into secrets file for compose
+        run: echo ${{ secrets.SPOTIPY_CLIENT_SECRET }} >> .envs/.local/.secret
+
       - name: Build the Stack
         run: docker compose -f local.yml build
 
