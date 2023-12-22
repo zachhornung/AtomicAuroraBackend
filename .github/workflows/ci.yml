@@ -40,6 +40,9 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v4
 
+      - name: create secrets file so stack will build
+        run: touch .envs/.local/.secret
+
       - name: Build the Stack
         run: docker compose -f local.yml build
 
