@@ -10,8 +10,6 @@ steps:
       - --file
       - deploy.Dockerfile
       - .
-    secretEnv:
-      - SPOTIPY_CLIENT_SECRET
     timeout: 600s
   - name: gcr.io/cloud-builders/docker
     args:
