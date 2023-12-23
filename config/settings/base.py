@@ -365,9 +365,9 @@ SPECTACULAR_SETTINGS = {
 # ------------------------------------------------------------------------------
 
 # Spotify
-SPOTIFY_ARTIST_ID = env("SPOTIFY_ARTIST_ID")
-SPOTIFY_CLIENT_ID = env("SPOTIPY_CLIENT_ID")
+SPOTIFY_ARTIST_ID = env.str("SPOTIFY_ARTIST_ID", "")
+SPOTIFY_CLIENT_ID = env.str("SPOTIPY_CLIENT_ID", "")
 SPOTIFY_CLIENT_SECRET = env.str("SPOTIPY_CLIENT_SECRET", "")
 
 # GCP
-GOOGLE_CALLBACK_URL = env("GOOGLE_CALLBACK_URL")
+GOOGLE_CALLBACK_URL = env.str("GOOGLE_CALLBACK_URL", "")
